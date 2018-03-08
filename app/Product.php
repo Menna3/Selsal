@@ -25,8 +25,7 @@ use Notifiable;
      *
      * @var array
      */
-    protected $hidden = [
-        'remember_token'];
+
     
     public function reviews()
     {
@@ -38,12 +37,13 @@ use Notifiable;
         return $this->hasMany('App\ProductPhotos');
     }
     
-        public function orders(){
+    public function orders()
+    {
         
         return $this->belongsToMany('App\Order');
     }
     
-        public function carts(){
+    public function carts(){
         
         return $this->belongsToMany('App\Cart');
     }

@@ -40,7 +40,19 @@ class ProductController extends Controller
     {
         return response()->json(Product::findOrFail($id));
     }
-    
+     public function deleteProduct($id)
+    {
+        
+        try
+        {
+            Product::findOrFail($id)->delete();
+            return response()->json(["status" => "success", "response" => "Product deleted"]);
+        }
+        catch(ModelNotFoundException $ex)
+        {
+            return response()->json(["status" => "failed", "error" => "Can't find product with this id"]);
+        }
+    }
     
     
 }
