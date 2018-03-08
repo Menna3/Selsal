@@ -41,10 +41,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post("products/create", "ProductController@addProduct");
-Route::get("products/get", "ProductController@getAllProducts");
-Route::get("products/get/{id}", "ProductController@getProductById");
+Route::post("product/create", "ProductController@addProduct");
+Route::get("product/get", "ProductController@getAllProducts");
+Route::get("product/get/{id}", "ProductController@getProductById");
 Route::get("Product/delete/{id}", "ProductController@deleteProduct");
+Route::post("product/update/{id}", "ProductController@updateProduct");
+
 
 Route::post("category/create", "CategoryController@addCategory");
 Route::get("category/get", "CategoryController@getAllCategories");
@@ -60,6 +62,9 @@ Route::post("country/create", "CountryController@addCountry");
 Route::get("country/get", "CountryController@getAllCountries");
 Route::get("country/get/{id}", "CountryController@getCountryById");
 Route::get("country/delete/{id}", "CountryController@deleteCountry");
+Route::post("country/update/{id}", "CountryController@updateCountry");
+
+
 
 Route::post("user/create", "UserController@addUser");
 Route::get("user/get", "UserController@getAllUsers");

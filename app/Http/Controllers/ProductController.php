@@ -40,7 +40,7 @@ class ProductController extends Controller
     {
         return response()->json(Product::findOrFail($id));
     }
-     public function deleteProduct($id)
+    public function deleteProduct($id)
     {
         
         try
@@ -54,5 +54,27 @@ class ProductController extends Controller
         }
     }
     
+    
+    
+    public function updateProduct($id, Request $request)
+   {
+       try
+        {
+            $product = Product::findOrFail($id);
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->qty = $request->qty;
+            $product->rate = $request->rate;
+            $product->price = $request->price; 
+            $product->save();
+            
+            return response()->json(["status" => "success", "response" => "Product updated"]);
+        }
+        catch(ModelNotFoundException $ex)
+        {
+            return response()->json(["status" => "failed", "error" => "Can't find Product with this id"]);
+        }
+    
+   }
     
 }

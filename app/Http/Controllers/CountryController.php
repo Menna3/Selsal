@@ -51,4 +51,30 @@ class CountryController extends Controller
         }
     }
     
+    
+   public function updateCountry($id, Request $request)
+   {
+       try
+        {
+            $country = Country::findOrFail($id);
+            $country->name = $request->name;
+            $country->save();
+            
+            return response()->json(["status" => "success", "response" => "Country updated"]);
+        }
+        catch(ModelNotFoundException $ex)
+        {
+            return response()->json(["status" => "failed", "error" => "Can't find Country with this id"]);
+        }
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
