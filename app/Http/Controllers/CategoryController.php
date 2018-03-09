@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Category;
+use App\Product;
 
 class CategoryController extends Controller
 {
@@ -52,6 +53,33 @@ class CategoryController extends Controller
         {
             return response()->json(["status" => "failed", "error" => "Can't find category with this id"]);
         }
+    }
+    
+    public function getProductsByCategoryId($id)
+    {
+        try
+        {
+            $products = new Product();
+            $p = array();
+            $products = Product::all();
+            for ($i=0; $i<sizeof($products); $i++)
+            {
+                if ($products[$i]->category_id == $id)
+                {
+                    array_push($p, $products[$i]);
+                }
+                
+            }
+            
+            return response()->json($p);
+                        
+        }
+        
+        catch(Exception $ex)
+        {
+            return response()->json(["status" => "failed", "error" => "Can't find category with this id"]);
+        }
+        
     }
     
 }

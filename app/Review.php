@@ -20,11 +20,13 @@ class Review extends Model
         'description' 
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'remember_token'];
+    public function review(){
+        
+        return $this->belongsTo('App\Customer');
+    }
+    
+    public function review(){
+        
+        return $this->belongsTo('App\Product');
+    }
 }

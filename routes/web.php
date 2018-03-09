@@ -52,6 +52,7 @@ Route::post("category/create", "CategoryController@addCategory");
 Route::get("category/get", "CategoryController@getAllCategories");
 Route::get("category/get/{id}", "CategoryController@getCategoryById");
 Route::get("category/delete/{id}", "CategoryController@deleteCategory");
+Route::get("category/get/products/{id}", "CategoryController@getProductsByCategoryId");
 
 Route::post("notification/create", "NotificationController@addNotification");
 Route::get("notification/get", "NotificationController@getAllNotifications");
@@ -63,8 +64,6 @@ Route::get("country/get", "CountryController@getAllCountries");
 Route::get("country/get/{id}", "CountryController@getCountryById");
 Route::get("country/delete/{id}", "CountryController@deleteCountry");
 Route::post("country/update/{id}", "CountryController@updateCountry");
-
-
 
 Route::post("user/create", "UserController@addUser");
 Route::get("user/get", "UserController@getAllUsers");
@@ -81,3 +80,8 @@ Route::get("customer/get", "CustomerController@getAllCustomers");
 Route::get("customer/get/{id}", "CustomerController@getCustomerById");
 Route::get("customer/delete/{id}", "CustomerController@deleteCustomer");
 
+Route::post("order/create", "OrderController@addOrder");
+Route::get("order/get", "OrderController@getAllOrders");
+Route::get("order/get/{id}", "OrderController@getOrderById");
+Route::get("order/delete/{id}", "OrderController@deleteOrder");
+Route::post("order/update/{id}", "OrderController@updateOrder");

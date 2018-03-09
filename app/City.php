@@ -34,4 +34,9 @@ class City extends Model
     {
         return $this->hasMany('App\Order');
     }
+    
+    public function city(){
+        
+        return $this->belongsTo('App\Country');
+    }
 }

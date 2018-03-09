@@ -21,13 +21,10 @@ class ProductPhotos extends Model
         'path'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'remember_token'];
+    public function photo(){
+        
+        return $this->belongsTo('App\Product');
+    }
     
 
 }

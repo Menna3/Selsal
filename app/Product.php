@@ -47,4 +47,9 @@ use Notifiable;
         
         return $this->belongsToMany('App\Cart');
     }
+    
+    public function product(){
+        
+        return $this->belongsTo('App\Category');
+    }
 }

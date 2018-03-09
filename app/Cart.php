@@ -19,12 +19,8 @@ class Cart extends Model
         'type', 'active' , 'expiryDate'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'remember_token'
-    ];
+    public function cart(){
+        
+        return $this->belongsTo('App\Customer');
+    }
 }

@@ -23,12 +23,25 @@ class Order extends Model
         'orderNumber' , 'orderDate' , 'status', 'paymentMethod' , 'tax' , 'shippingCost' , 'shippingDate' , 'totalPrice' , 'notes'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'remember_token'];
+
+    public function order(){
+        
+        return $this->belongsTo('App\Customer');
+    }
+    
+    public function order(){
+        
+        return $this->belongsTo('App\User');
+    }
+    
+    public function order(){
+        
+        return $this->belongsTo('App\Shipper');
+    }
+    
+    public function order(){
+        
+        return $this->belongsTo('App\City');
+    }
     
 }
